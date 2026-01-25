@@ -23,12 +23,47 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Boxes
 }
 
-// Convert numeric level to descriptive proficiency
-function getProficiency(level: number): { label: string; color: string; icon: React.ComponentType<{ className?: string }> } {
-  if (level >= 90) return { label: 'Expert', color: 'text-emerald-400', icon: Award }
-  if (level >= 85) return { label: 'Advanced', color: 'text-blue-400', icon: Sparkles }
-  if (level >= 80) return { label: 'Proficient', color: 'text-violet-400', icon: Zap }
-  return { label: 'Skilled', color: 'text-amber-400', icon: Star }
+// Convert numeric level to descriptive proficiency with beautiful styling
+function getProficiency(level: number): { 
+  label: string
+  textColor: string
+  bgGradient: string
+  borderColor: string
+  glowColor: string
+  icon: React.ComponentType<{ className?: string }> 
+} {
+  if (level >= 90) return { 
+    label: 'Expert', 
+    textColor: 'text-emerald-300',
+    bgGradient: 'bg-gradient-to-r from-emerald-500/25 via-emerald-400/20 to-teal-500/25',
+    borderColor: 'border-emerald-400/40',
+    glowColor: 'shadow-emerald-500/20',
+    icon: Award 
+  }
+  if (level >= 85) return { 
+    label: 'Advanced', 
+    textColor: 'text-blue-300',
+    bgGradient: 'bg-gradient-to-r from-blue-500/25 via-blue-400/20 to-cyan-500/25',
+    borderColor: 'border-blue-400/40',
+    glowColor: 'shadow-blue-500/20',
+    icon: Sparkles 
+  }
+  if (level >= 80) return { 
+    label: 'Proficient', 
+    textColor: 'text-violet-300',
+    bgGradient: 'bg-gradient-to-r from-violet-500/25 via-purple-400/20 to-fuchsia-500/25',
+    borderColor: 'border-violet-400/40',
+    glowColor: 'shadow-violet-500/20',
+    icon: Zap 
+  }
+  return { 
+    label: 'Skilled', 
+    textColor: 'text-amber-300',
+    bgGradient: 'bg-gradient-to-r from-amber-500/25 via-orange-400/20 to-yellow-500/25',
+    borderColor: 'border-amber-400/40',
+    glowColor: 'shadow-amber-500/20',
+    icon: Star 
+  }
 }
 
 export function Skills() {
@@ -140,9 +175,16 @@ export function Skills() {
                       </div>
                       
                       {/* Proficiency Badge */}
-                      <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)]">
-                        <ProficiencyIcon className={`w-3.5 h-3.5 ${proficiency.color}`} />
-                        <span className={`text-xs font-medium ${proficiency.color}`}>
+                      <div className={`
+                        flex items-center gap-1.5 px-3 py-1.5 rounded-full
+                        ${proficiency.bgGradient}
+                        border ${proficiency.borderColor}
+                        shadow-sm ${proficiency.glowColor}
+                        transition-all duration-300
+                        group-hover:shadow-md group-hover:scale-105
+                      `}>
+                        <ProficiencyIcon className={`w-3.5 h-3.5 ${proficiency.textColor}`} />
+                        <span className={`text-xs font-semibold ${proficiency.textColor} tracking-wide`}>
                           {proficiency.label}
                         </span>
                       </div>
