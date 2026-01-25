@@ -162,19 +162,20 @@ export function Skills() {
           transition={{ delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <p className="text-sm text-[var(--text-muted)] mb-4">Full technology stack</p>
-          <div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
+          <p className="text-sm text-[var(--text-muted)] mb-6">Full technology stack</p>
+          <div className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto">
             {['React', 'TypeScript', 'Vue 3', 'Redux', 'Node.js', 'Express', 'AWS', 'Docker', 
               'PostgreSQL', 'MongoDB', 'Supabase', 'WebSockets', 'n8n', 'GitHub Actions', 
               'Tailwind', 'Storybook', 'OAuth', 'RBAC', 'SOAP', 'REST APIs'].map((tech, index) => (
               <motion.div
                 key={tech}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.03 }}
+                transition={{ delay: index * 0.03, type: "spring", stiffness: 200 }}
+                whileHover={{ scale: 1.05 }}
               >
-                <Badge variant="outline" size="sm" className="cursor-default">
+                <Badge variant="tech" size="sm" className="cursor-default backdrop-blur-sm">
                   {tech}
                 </Badge>
               </motion.div>

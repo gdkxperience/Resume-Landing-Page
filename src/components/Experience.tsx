@@ -161,9 +161,9 @@ export function Experience() {
                                 <p className="text-sm text-emerald-400 mt-1 text-left">
                                   Impact: {achievement.impact}
                                 </p>
-                                <div className="flex flex-wrap gap-1 mt-2">
+                                <div className="flex flex-wrap gap-1.5 mt-3">
                                   {achievement.tags.map((tag) => (
-                                    <Badge key={tag} variant="default" size="sm">
+                                    <Badge key={tag} variant="outline" size="sm">
                                       {tag}
                                     </Badge>
                                   ))}
@@ -174,10 +174,10 @@ export function Experience() {
                           
                           {/* Technologies */}
                           <div className="mt-6 pt-4 border-t border-[var(--glass-border)]">
-                            <p className="text-xs text-[var(--text-muted)] mb-2 text-left">Technologies used</p>
-                            <div className="flex flex-wrap gap-1">
+                            <p className="text-xs text-[var(--text-muted)] mb-3 text-left">Technologies used</p>
+                            <div className="flex flex-wrap gap-2">
                               {exp.technologies.map((tech) => (
-                                <Badge key={tech} variant="primary" size="sm">
+                                <Badge key={tech} variant="tech" size="sm">
                                   {tech}
                                 </Badge>
                               ))}
