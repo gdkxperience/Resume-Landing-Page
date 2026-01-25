@@ -1,11 +1,94 @@
 import jsPDF from 'jspdf'
-import { personalInfo, skills, experiences, education } from '@/data/resume'
 
 // Colors
 const PRIMARY_COLOR: [number, number, number] = [51, 115, 255] // #3373ff
 const TEXT_DARK: [number, number, number] = [30, 30, 40]
-const TEXT_GRAY: [number, number, number] = [100, 100, 110]
-const TEXT_LIGHT: [number, number, number] = [140, 140, 150]
+const TEXT_GRAY: [number, number, number] = [80, 80, 90]
+const TEXT_LIGHT: [number, number, number] = [120, 120, 130]
+
+// Resume content from docs/resume.md
+const resumeContent = {
+  name: 'GEORGI KRASTEV',
+  title: 'Senior Full-Stack Engineer | Technical Architect | Platform Modernization Specialist',
+  contact: 'Sofia, Bulgaria | +359 87 960 6986 | krustevgeorgi@yahoo.com',
+  
+  summary: `Hands-on technical architect with 9+ years architecting and shipping scalable, high-impact platforms across real-time systems (satellites), industrial automation (robots), fintech integrations (payments), and AI-driven automation. Proven expertise in legacy platform modernization, design system leadership, third-party integrations at scale, and rapid MVP delivery (3–4x faster than industry standard).`,
+  
+  coreCompetencies: [
+    'Full-stack development (React/Vue/Node/AWS)',
+    'System architecture & technical decision-making',
+    'Design systems & component standardization',
+    'Payment processing & SOAP/REST integrations',
+    'Real-time data visualization & WebSocket systems',
+    'Cloud infrastructure (AWS, GitHub Actions CI/CD)',
+    'AI/automation workflows (n8n, custom nodes, LLMs)',
+    'Cross-functional team leadership & vendor management'
+  ],
+  
+  skills: {
+    frontend: 'React (Hooks, Context), Redux, TypeScript, Vue 3 (Composition API), Vite, Tailwind CSS, Material UI, Storybook, WebSockets',
+    backend: 'Node.js, Express.js, MongoDB, SQL, Supabase, REST APIs, SOAP/XML',
+    cloud: 'AWS (S3, CloudFront, EC2, Cognito, Lambda, RDS), Docker, GitHub Actions CI/CD',
+    ai: 'n8n (50+ step workflows), Custom JavaScript Nodes, OpenAI API, Automated Reporting',
+    architecture: 'Design Systems, Legacy Modernization, RBAC, OAuth 2.0, System Design'
+  },
+  
+  experience: [
+    {
+      title: 'Principal Full-Stack Engineer / Solution Architect',
+      company: 'Boutique Tech Consultancy (MVP Forge / ZenGroup)',
+      location: 'Sofia, Bulgaria',
+      period: 'January 2024 – Present',
+      description: 'Leading technical delivery of AI automation services and rapid SaaS development.',
+      achievements: [
+        { name: 'Prezaredi.bg', detail: '20 corporate clients, ~400 fleet cards, 99%+ uptime, BORICA payment integration' },
+        { name: 'Automated Reporting', detail: 'Saves 60-80 hours/month via 50-step n8n workflow with AI insights' },
+        { name: 'TabiSurvey MVP', detail: 'Shipped in 3 weeks (4x faster than industry standard)' }
+      ]
+    },
+    {
+      title: 'Technical Lead & Platform Architect',
+      company: 'EnduroSat',
+      location: 'Sofia, Bulgaria',
+      period: 'December 2022 – December 2025',
+      description: 'Led complete architectural overhaul of Satellite Operations Platform.',
+      achievements: [
+        { name: 'Platform V2 Rewrite', detail: 'Load time 8s→2s, telemetry 5s→<500ms, React/Redux/Tailwind' },
+        { name: 'Design System', detail: '20-25% codebase reduction, 30+ Storybook components' },
+        { name: 'Customer Portal', detail: '20% reduction in support tickets via self-service' }
+      ]
+    },
+    {
+      title: 'Senior Frontend Engineer',
+      company: 'DevCloud BG',
+      location: 'Plovdiv, Bulgaria',
+      period: '2019 – 2022',
+      description: 'Built Robot Control Center for industrial silicon-wafer processing systems.',
+      achievements: [
+        { name: 'Robot Control Center', detail: 'WebSocket control, 90% error reduction, deployed in China' },
+        { name: 'Training Reduction', detail: 'Operator training 4 weeks → 2 weeks' }
+      ]
+    },
+    {
+      title: 'Software Engineer',
+      company: 'Aucoda',
+      location: 'Manchester, UK',
+      period: '2017 – 2019',
+      description: 'Cross-platform application development platform.',
+      achievements: [
+        { name: 'OAuth Implementation', detail: 'Unified auth across iOS/Android/Web, 80% fewer auth bugs' }
+      ]
+    }
+  ],
+  
+  education: {
+    degree: 'Bachelor of Science in Computer Science',
+    institution: 'University of Manchester',
+    period: '2015 – 2017'
+  },
+  
+  languages: ['Bulgarian – Native', 'English – Professional fluency']
+}
 
 export function generateResumePDF() {
   const doc = new jsPDF({
@@ -16,7 +99,7 @@ export function generateResumePDF() {
 
   const pageWidth = doc.internal.pageSize.getWidth()
   const pageHeight = doc.internal.pageSize.getHeight()
-  const margin = 20
+  const margin = 15
   const contentWidth = pageWidth - margin * 2
   let y = margin
 
@@ -27,26 +110,19 @@ export function generateResumePDF() {
   }
 
   const addText = (text: string, x: number, yPos: number, options?: { maxWidth?: number; align?: 'left' | 'center' | 'right' }) => {
-    if (options?.maxWidth) {
-      doc.text(text, x, yPos, { maxWidth: options.maxWidth, align: options.align })
-    } else {
-      doc.text(text, x, yPos, { align: options?.align })
-    }
+    doc.text(text, x, yPos, { maxWidth: options?.maxWidth, align: options?.align })
   }
 
   const addSection = (title: string) => {
-    y += 8
-    doc.setTextColor(...PRIMARY_COLOR)
-    setFont('bold', 12)
-    addText(title.toUpperCase(), margin, y)
-    
-    // Underline
-    y += 2
-    doc.setDrawColor(...PRIMARY_COLOR)
-    doc.setLineWidth(0.5)
-    doc.line(margin, y, margin + 40, y)
-    
     y += 6
+    doc.setTextColor(...PRIMARY_COLOR)
+    setFont('bold', 11)
+    addText(title.toUpperCase(), margin, y)
+    y += 1.5
+    doc.setDrawColor(...PRIMARY_COLOR)
+    doc.setLineWidth(0.4)
+    doc.line(margin, y, pageWidth - margin, y)
+    y += 5
     doc.setTextColor(...TEXT_DARK)
   }
 
@@ -60,180 +136,147 @@ export function generateResumePDF() {
   }
 
   // === HEADER ===
-  // Name
   doc.setTextColor(...PRIMARY_COLOR)
-  setFont('bold', 24)
-  addText(personalInfo.name, pageWidth / 2, y, { align: 'center' })
-  y += 8
-
-  // Title
-  doc.setTextColor(...TEXT_DARK)
-  setFont('normal', 14)
-  addText(personalInfo.title, pageWidth / 2, y, { align: 'center' })
-  y += 5
-
-  // Subtitle
-  doc.setTextColor(...TEXT_GRAY)
-  setFont('normal', 11)
-  addText(personalInfo.subtitle, pageWidth / 2, y, { align: 'center' })
-  y += 8
-
-  // Contact Info Line
-  doc.setTextColor(...TEXT_GRAY)
-  setFont('normal', 9)
-  const contactLine = `${personalInfo.email}  •  ${personalInfo.phone}  •  ${personalInfo.location}`
-  addText(contactLine, pageWidth / 2, y, { align: 'center' })
-  y += 4
-
-  // Languages
-  const languagesLine = personalInfo.languages.join('  •  ')
-  addText(languagesLine, pageWidth / 2, y, { align: 'center' })
+  setFont('bold', 20)
+  addText(resumeContent.name, pageWidth / 2, y, { align: 'center' })
   y += 6
 
-  // Divider
-  doc.setDrawColor(220, 220, 225)
-  doc.setLineWidth(0.3)
-  doc.line(margin, y, pageWidth - margin, y)
+  doc.setTextColor(...TEXT_DARK)
+  setFont('normal', 10)
+  addText(resumeContent.title, pageWidth / 2, y, { align: 'center' })
+  y += 5
+
+  doc.setTextColor(...TEXT_GRAY)
+  setFont('normal', 9)
+  addText(resumeContent.contact, pageWidth / 2, y, { align: 'center' })
+  y += 3
 
   // === PROFESSIONAL SUMMARY ===
   addSection('Professional Summary')
   
   doc.setTextColor(...TEXT_DARK)
-  setFont('normal', 10)
-  const bioLines = doc.splitTextToSize(personalInfo.bio, contentWidth)
-  doc.text(bioLines, margin, y)
-  y += bioLines.length * 5 + 2
-
-  // Highlights
-  doc.setTextColor(...TEXT_GRAY)
   setFont('normal', 9)
-  personalInfo.highlights.forEach(highlight => {
-    addText(`• ${highlight}`, margin + 2, y)
-    y += 4.5
+  const summaryLines = doc.splitTextToSize(resumeContent.summary, contentWidth)
+  doc.text(summaryLines, margin, y)
+  y += summaryLines.length * 4 + 2
+
+  // Core Competencies
+  doc.setTextColor(...TEXT_GRAY)
+  setFont('normal', 8)
+  const compCols = 2
+  const compColWidth = contentWidth / compCols
+  resumeContent.coreCompetencies.forEach((comp, i) => {
+    const col = i % compCols
+    const row = Math.floor(i / compCols)
+    if (col === 0 && i > 0) y += 0
+    const xPos = margin + col * compColWidth
+    const yPos = y + row * 3.5
+    addText(`• ${comp}`, xPos, yPos)
   })
+  y += Math.ceil(resumeContent.coreCompetencies.length / compCols) * 3.5 + 2
+
+  // === TECHNICAL SKILLS ===
+  addSection('Core Technical Skills')
+  
+  const skillEntries = Object.entries(resumeContent.skills)
+  skillEntries.forEach(([category, skills]) => {
+    checkPageBreak(10)
+    doc.setTextColor(...TEXT_DARK)
+    setFont('bold', 8)
+    const catTitle = category.charAt(0).toUpperCase() + category.slice(1) + ':'
+    addText(catTitle, margin, y)
+    
+    doc.setTextColor(...TEXT_GRAY)
+    setFont('normal', 8)
+    const skillLines = doc.splitTextToSize(skills, contentWidth - 25)
+    doc.text(skillLines, margin + 22, y)
+    y += skillLines.length * 3.5 + 1
+  })
+  y += 2
 
   // === EXPERIENCE ===
   addSection('Professional Experience')
 
-  experiences.forEach((exp, index) => {
-    checkPageBreak(45)
+  resumeContent.experience.forEach((exp) => {
+    checkPageBreak(35)
 
-    // Company & Period
+    // Title & Period
     doc.setTextColor(...TEXT_DARK)
-    setFont('bold', 11)
-    addText(exp.company, margin, y)
-    
-    doc.setTextColor(...TEXT_GRAY)
-    setFont('normal', 9)
-    addText(exp.period, pageWidth - margin, y, { align: 'right' })
-    y += 4.5
-
-    // Title
-    doc.setTextColor(...PRIMARY_COLOR)
-    setFont('normal', 10)
+    setFont('bold', 10)
     addText(exp.title, margin, y)
     
-    doc.setTextColor(...TEXT_LIGHT)
+    doc.setTextColor(...TEXT_GRAY)
+    setFont('normal', 8)
+    addText(exp.period, pageWidth - margin, y, { align: 'right' })
+    y += 4
+
+    // Company & Location
+    doc.setTextColor(...PRIMARY_COLOR)
     setFont('normal', 9)
+    addText(exp.company, margin, y)
+    
+    doc.setTextColor(...TEXT_LIGHT)
+    setFont('normal', 8)
     addText(exp.location, pageWidth - margin, y, { align: 'right' })
-    y += 4.5
+    y += 4
 
     // Description
     doc.setTextColor(...TEXT_GRAY)
-    setFont('normal', 9)
+    setFont('normal', 8)
     const descLines = doc.splitTextToSize(exp.description, contentWidth)
     doc.text(descLines, margin, y)
-    y += descLines.length * 4 + 2
+    y += descLines.length * 3.5 + 2
 
-    // Key Achievements (first 2)
-    exp.achievements.slice(0, 2).forEach(achievement => {
-      checkPageBreak(12)
+    // Achievements
+    exp.achievements.forEach(ach => {
+      checkPageBreak(8)
       doc.setTextColor(...TEXT_DARK)
-      setFont('normal', 9)
-      const achText = `• ${achievement.title}: ${achievement.description}`
-      const achLines = doc.splitTextToSize(achText, contentWidth - 4)
-      doc.text(achLines, margin + 2, y)
-      y += achLines.length * 4
+      setFont('bold', 8)
+      addText(`▸ ${ach.name}:`, margin + 2, y)
       
-      // Impact
-      if (achievement.impact) {
-        doc.setTextColor(...PRIMARY_COLOR)
-        setFont('normal', 8)
-        addText(`  Impact: ${achievement.impact}`, margin + 4, y)
-        y += 4
-      }
+      doc.setTextColor(...TEXT_GRAY)
+      setFont('normal', 8)
+      const achLines = doc.splitTextToSize(ach.detail, contentWidth - 35)
+      doc.text(achLines, margin + 32, y)
+      y += achLines.length * 3.5 + 1
     })
-
-    // Technologies
-    doc.setTextColor(...TEXT_LIGHT)
-    setFont('normal', 8)
-    const techText = `Technologies: ${exp.technologies.slice(0, 6).join(', ')}`
-    addText(techText, margin, y)
-    y += 6
-
-    if (index < experiences.length - 1) {
-      y += 2
-    }
-  })
-
-  // === SKILLS ===
-  checkPageBreak(40)
-  addSection('Technical Skills')
-
-  const skillCategories = Object.entries(skills)
-  const colWidth = contentWidth / 2
-
-  skillCategories.forEach(([ , category], index) => {
-    const col = index % 2
-    const xPos = margin + col * colWidth
     
-    if (col === 0 && index > 0) {
-      y += 12
-    }
-    
-    if (col === 0) {
-      checkPageBreak(15)
-    }
-
-    const yPos = col === 0 ? y : y - 12
-
-    doc.setTextColor(...TEXT_DARK)
-    setFont('bold', 9)
-    addText(category.title, xPos, yPos)
-
-    doc.setTextColor(...TEXT_GRAY)
-    setFont('normal', 8)
-    const skillNames = category.items.map(s => s.name).join(', ')
-    const skillLines = doc.splitTextToSize(skillNames, colWidth - 5)
-    doc.text(skillLines, xPos, yPos + 4)
+    y += 4
   })
-
-  y += 20
 
   // === EDUCATION ===
-  checkPageBreak(25)
+  checkPageBreak(20)
   addSection('Education')
 
   doc.setTextColor(...TEXT_DARK)
-  setFont('bold', 10)
-  addText(education.degree, margin, y)
+  setFont('bold', 9)
+  addText(resumeContent.education.degree, margin, y)
+  
+  doc.setTextColor(...TEXT_GRAY)
+  setFont('normal', 8)
+  addText(resumeContent.education.period, pageWidth - margin, y, { align: 'right' })
+  y += 4
+
+  doc.setTextColor(...TEXT_GRAY)
+  setFont('normal', 9)
+  addText(resumeContent.education.institution, margin, y)
+  y += 6
+
+  // === LANGUAGES ===
+  addSection('Languages')
   
   doc.setTextColor(...TEXT_GRAY)
   setFont('normal', 9)
-  addText(education.period, pageWidth - margin, y, { align: 'right' })
-  y += 4.5
-
-  doc.setTextColor(...TEXT_GRAY)
-  setFont('normal', 9)
-  addText(`${education.institution}, ${education.location}`, margin, y)
-  y += 8
+  addText(resumeContent.languages.join('  •  '), margin, y)
 
   // === FOOTER ===
   doc.setTextColor(...TEXT_LIGHT)
-  setFont('normal', 8)
-  const footerY = pageHeight - 10
-  addText(`Generated from portfolio • ${new Date().toLocaleDateString()}`, pageWidth / 2, footerY, { align: 'center' })
+  setFont('normal', 7)
+  const footerY = pageHeight - 8
+  addText(`Portfolio: resume-landing-page-zeta.vercel.app`, margin, footerY)
+  addText(`Generated ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}`, pageWidth / 2, footerY, { align: 'center' })
+  addText('krustevgeorgi@yahoo.com', pageWidth - margin, footerY, { align: 'right' })
 
   // Save the PDF
-  doc.save(`${personalInfo.name.replace(' ', '_')}_Resume.pdf`)
+  doc.save('Georgi_Krastev_Resume.pdf')
 }
