@@ -150,7 +150,7 @@ export function Contact() {
                   Ready to Build Something Great?
                 </h3>
                 <p className="text-[var(--text-secondary)] mb-8">
-                  Whether you need a technical architect for your next project, a senior engineer to lead your frontend team, or someone to build your MVP from scratch—let's talk.
+                  Whether you need a technical architect for your next project, a senior engineer to lead your frontend team, or someone to build your MVP from scratch-let's talk.
                 </p>
                 
                 {/* Quick Actions */}
@@ -169,7 +169,7 @@ export function Contact() {
                     size="lg"
                     className="w-full"
                     leftIcon={<Download className="w-5 h-5" />}
-                    onClick={() => generateResumePDF()}
+                    onClick={generateResumePDF}
                   >
                     Download Full Resume (PDF)
                   </Button>

@@ -430,7 +430,7 @@ export function Hero() {
               className="text-base md:text-lg text-[var(--text-secondary)] max-w-lg mb-8"
             >
               Transforming <span className="text-[var(--text-primary)] font-medium">complex requirements</span> into{' '}
-              <span className="text-[var(--text-primary)] font-medium">elegant, scalable solutions</span> — from satellite platforms to AI automation.
+              <span className="text-[var(--text-primary)] font-medium">elegant, scalable solutions</span> - from satellite platforms to AI automation.
             </motion.p>
             
             {/* Quick Stats */}

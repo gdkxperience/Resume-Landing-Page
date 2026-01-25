@@ -11,7 +11,7 @@ export const personalInfo = {
   languages: ["Bulgarian (Native)", "English (Professional)"],
   yearsOfExperience: 9,
   tagline: "Building scalable systems that power businesses",
-  bio: "Hands-on architect with 9+ years crafting high-performance web applications, AI automation systems, and enterprise integrations. I transform complex requirements into elegant, maintainable solutions—from satellite operations platforms to fleet management systems processing thousands of transactions monthly.",
+  bio: "Hands-on architect with 9+ years crafting high-performance web applications, AI automation systems, and enterprise integrations. I transform complex requirements into elegant, maintainable solutions-from satellite operations platforms to fleet management systems processing thousands of transactions monthly.",
   currentlyAvailableFor: ["Senior Full Stack Engineer", "Technical Architect", "Staff Engineer", "CTO"],
   highlights: [
     "Architected platforms serving 20+ enterprise clients",

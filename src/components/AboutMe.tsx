@@ -79,7 +79,7 @@ export function AboutMe() {
             <span className="gradient-text">Me</span>
           </h2>
           <p className="section-subtitle mx-auto">
-            The person behind the code — my journey, values, and what drives me
+            The person behind the code - my journey, values, and what drives me
           </p>
         </motion.div>
 
