@@ -11,8 +11,11 @@ const resumeContent = {
   name: 'GEORGI KRASTEV',
   title: 'Senior Full-Stack Engineer | Technical Architect | Platform Modernization Specialist',
   contact: 'Sofia, Bulgaria | +359 87 960 6986 | krustevgeorgi@yahoo.com',
+  portfolio: 'resume-landing-page-zeta.vercel.app',
   
   summary: `Hands-on technical architect with 9+ years architecting and shipping scalable, high-impact platforms across real-time systems (satellites), industrial automation (robots), fintech integrations (payments), and AI-driven automation. Proven expertise in legacy platform modernization, design system leadership, third-party integrations at scale, and rapid MVP delivery (3–4x faster than industry standard).`,
+  
+  knownFor: 'Shipping MVPs faster than competitors, solving complex integration problems, centralizing fragmented codebases, and driving measurable operational improvements.',
   
   coreCompetencies: [
     'Full-stack development (React/Vue/Node/AWS)',
@@ -26,12 +29,12 @@ const resumeContent = {
   ],
   
   skills: {
-    frontend: 'React (6+ yrs), Redux (6+ yrs), TypeScript (6+ yrs), Vue 3, Tailwind CSS (2+ yrs), Storybook, WebSockets',
-    backend: 'Node.js (7+ yrs), Express (6+ yrs), MongoDB (6+ yrs), SQL (Advanced), Supabase, REST APIs',
+    frontend: 'React (6+ yrs), Redux (6+ yrs), TypeScript (6+ yrs), Vue 3, Tailwind CSS, Storybook, WebSockets',
+    backend: 'Node.js (7+ yrs), Express (6+ yrs), MongoDB (6+ yrs), SQL (Advanced), Supabase, REST/SOAP APIs',
     cloud: 'AWS (S3, CloudFront, EC2, Cognito, Lambda, RDS), Docker (Advanced), GitHub Actions CI/CD',
-    integrations: 'REST APIs, SOAP/XML APIs, OAuth 2.0, n8n Automation, Payment Gateways, Webhook Systems',
     design: 'UI/UX Wireframing, Pixel Perfect Mockups, Figma, Design Systems',
-    architecture: 'System Design, RBAC, Component Libraries, Performance Optimization'
+    integrations: 'REST APIs, SOAP/XML, OAuth 2.0, n8n Automation, Payment Gateways, Webhook Systems',
+    architecture: 'System Design, RBAC, Component Libraries, Performance Optimization, Legacy Modernization'
   },
   
   experience: [
@@ -40,11 +43,11 @@ const resumeContent = {
       company: 'Boutique Tech Consultancy (MVP Forge / ZenGroup)',
       location: 'Sofia, Bulgaria',
       period: 'January 2024 – Present',
-      description: 'Leading technical delivery of AI automation services and rapid SaaS development.',
+      description: 'Leading technical delivery of AI automation services and rapid SaaS development with focus on workflow automation, payment integrations, and MVP velocity.',
       achievements: [
-        { name: 'Prezaredi.bg', detail: '20 corporate clients, ~400 fleet cards, 99%+ uptime, BORICA payment integration' },
-        { name: 'Automated Reporting', detail: 'Saves 60-80 hours/month via 50-step n8n workflow with AI insights' },
-        { name: 'TabiSurvey MVP', detail: 'Shipped in 3 weeks (4x faster than industry standard)' }
+        { name: 'Prezaredi.bg', detail: '20 corporate clients, ~400 fleet cards, 99%+ uptime. React Native + Node.js + BORICA SOAP. Managed 15+ developers.' },
+        { name: 'Automated Reporting', detail: '50-step n8n workflow saving 60-80 hours/month. AWS Lambda PDF generation, OpenAI insights.' },
+        { name: 'TabiSurvey MVP', detail: 'Vue 3 + Supabase survey platform shipped in 3 weeks (4x faster). RBAC, analytics, Lighthouse 95+.' }
       ]
     },
     {
@@ -52,11 +55,11 @@ const resumeContent = {
       company: 'EnduroSat',
       location: 'Sofia, Bulgaria',
       period: 'December 2022 – December 2025',
-      description: 'Led complete architectural overhaul of Satellite Operations Platform.',
+      description: 'Led complete architectural overhaul of Satellite Operations Platform, stabilizing fragile legacy system into high-performance, maintainable platform.',
       achievements: [
-        { name: 'Platform V2 Rewrite', detail: 'Load time 8s→2s, telemetry 5s→<500ms, React/Redux/Tailwind' },
-        { name: 'Design System', detail: '20-25% codebase reduction, 30+ Storybook components' },
-        { name: 'Customer Portal', detail: '20% reduction in support tickets via self-service' }
+        { name: 'Platform V2 Rewrite', detail: 'jQuery → React/Redux/Tailwind. Load time 8s→2s, telemetry 5s→<500ms. WebSocket real-time, Vite.' },
+        { name: 'Design System', detail: '30+ Storybook components, 20-25% codebase reduction across 5 products. WCAG 2.1 AA, Jest testing.' },
+        { name: 'Customer Portal', detail: '20% reduction in support tickets. Self-service dashboard, real-time notifications, knowledge base.' }
       ]
     },
     {
@@ -64,10 +67,10 @@ const resumeContent = {
       company: 'DevCloud BG',
       location: 'Plovdiv, Bulgaria',
       period: '2019 – 2022',
-      description: 'Built Robot Control Center for industrial silicon-wafer processing systems.',
+      description: 'Built Robot Control Center for industrial silicon-wafer processing systems. Deployed and trained operators in China.',
       achievements: [
-        { name: 'Robot Control Center', detail: 'WebSocket control, 90% error reduction, deployed in China' },
-        { name: 'Training Reduction', detail: 'Operator training 4 weeks → 2 weeks' }
+        { name: 'Robot Control Center', detail: 'React + TypeScript + WebSockets. Visual block workflow editor. 90% error reduction, 40% throughput increase.' },
+        { name: 'Training & Deployment', detail: 'Operator training 4 weeks → 2 weeks. On-site deployment in China manufacturing environment.' }
       ]
     },
     {
@@ -75,11 +78,20 @@ const resumeContent = {
       company: 'Aucoda',
       location: 'Manchester, UK',
       period: '2017 – 2019',
-      description: 'Cross-platform application development platform.',
+      description: 'Cross-platform application development platform compiling to iOS, Android, and web applications.',
       achievements: [
-        { name: 'OAuth Implementation', detail: 'Unified auth across iOS/Android/Web, 80% fewer auth bugs' }
+        { name: 'OAuth Implementation', detail: 'Unified OAuth 2.0 across all platforms. JS ↔ Objective-C bridging. 80% reduction in auth bugs.' }
       ]
     }
+  ],
+  
+  keyAchievements: [
+    { metric: '20 clients, 400 cards', label: 'Prezaredi.bg fleet platform' },
+    { metric: '80 hours/month saved', label: 'Automated reporting agent' },
+    { metric: '3 weeks to production', label: 'TabiSurvey MVP (4x faster)' },
+    { metric: '8s → 2s load time', label: 'EnduroSat Platform V2' },
+    { metric: '20-25% code reduction', label: 'Design system centralization' },
+    { metric: '90% error reduction', label: 'Robot Control Center' }
   ],
   
   education: {
@@ -150,7 +162,13 @@ export function generateResumePDF() {
   doc.setTextColor(...TEXT_GRAY)
   setFont('normal', 9)
   addText(resumeContent.contact, pageWidth / 2, y, { align: 'center' })
-  y += 3
+  y += 4
+  
+  // Portfolio link
+  doc.setTextColor(...PRIMARY_COLOR)
+  setFont('normal', 8)
+  addText(`Portfolio: ${resumeContent.portfolio}`, pageWidth / 2, y, { align: 'center' })
+  y += 2
 
   // === PROFESSIONAL SUMMARY ===
   addSection('Professional Summary')
@@ -160,6 +178,16 @@ export function generateResumePDF() {
   const summaryLines = doc.splitTextToSize(resumeContent.summary, contentWidth)
   doc.text(summaryLines, margin, y)
   y += summaryLines.length * 4 + 2
+  
+  // Known For
+  doc.setTextColor(...TEXT_GRAY)
+  setFont('bold', 8)
+  addText('Known for: ', margin, y)
+  doc.setTextColor(...TEXT_DARK)
+  setFont('normal', 8)
+  const knownForLines = doc.splitTextToSize(resumeContent.knownFor, contentWidth - 20)
+  doc.text(knownForLines, margin + 18, y)
+  y += knownForLines.length * 3.5 + 2
 
   // Core Competencies
   doc.setTextColor(...TEXT_GRAY)
