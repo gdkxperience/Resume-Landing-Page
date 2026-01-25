@@ -1,4 +1,6 @@
+import { useState, useCallback } from 'react'
 import { ThemeProvider } from './lib/ThemeContext'
+import { SplashScreen } from './components/SplashScreen'
 import { 
   Navigation, 
   Hero, 
@@ -13,8 +15,17 @@ import {
 } from './components'
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true)
+  
+  const handleSplashComplete = useCallback(() => {
+    setShowSplash(false)
+  }, [])
+
   return (
     <ThemeProvider>
+      {/* Splash Screen */}
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      
       <div className="relative min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] overflow-hidden transition-colors duration-300">
         {/* Fixed Navigation */}
         <Navigation />

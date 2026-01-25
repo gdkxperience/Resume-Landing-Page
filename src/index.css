@@ -13,23 +13,23 @@
    ============================================ */
 :root,
 .light {
-  /* Primary Palette - Professional Blue */
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-300: #93c5fd;
-  --color-primary-400: #60a5fa;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
-  --color-primary-950: #172554;
+  /* Primary Palette - Bold Teal */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  --color-primary-950: #042f2e;
 
-  /* Accent - Violet */
-  --color-accent-400: #a78bfa;
-  --color-accent-500: #8b5cf6;
-  --color-accent-600: #7c3aed;
+  /* Accent - Vibrant Orange */
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
 
   /* Success - Emerald */
   --color-success-400: #4ade80;
@@ -62,25 +62,25 @@
   --text-muted: #6b7280;
 
   /* Gradients - Light */
-  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
-  --gradient-glow: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+  --gradient-primary: linear-gradient(135deg, #14b8a6 0%, #0d9488 50%, #f97316 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(249, 115, 22, 0.15) 100%);
   --gradient-card: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(248,250,252,1) 100%);
-  --gradient-mesh: radial-gradient(at 40% 20%, hsla(217,91%,60%,0.08) 0px, transparent 50%),
-                   radial-gradient(at 80% 0%, hsla(270,76%,70%,0.06) 0px, transparent 50%),
-                   radial-gradient(at 0% 50%, hsla(339,70%,70%,0.05) 0px, transparent 50%);
+  --gradient-mesh: radial-gradient(at 40% 20%, hsla(168,76%,42%,0.08) 0px, transparent 50%),
+                   radial-gradient(at 80% 0%, hsla(25,95%,53%,0.06) 0px, transparent 50%),
+                   radial-gradient(at 0% 50%, hsla(168,76%,42%,0.05) 0px, transparent 50%);
 
   /* Shadows - Light */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.12), 0 10px 25px rgba(0, 0, 0, 0.08);
-  --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.1), 0 0 80px rgba(139, 92, 246, 0.05);
-  --shadow-glow-strong: 0 0 60px rgba(59, 130, 246, 0.15), 0 0 120px rgba(139, 92, 246, 0.1);
+  --shadow-glow: 0 0 40px rgba(20, 184, 166, 0.1), 0 0 80px rgba(249, 115, 22, 0.05);
+  --shadow-glow-strong: 0 0 60px rgba(20, 184, 166, 0.15), 0 0 120px rgba(249, 115, 22, 0.1);
 
   /* Orb colors - Light */
-  --orb-primary: rgba(59, 130, 246, 0.15);
-  --orb-accent: rgba(139, 92, 246, 0.12);
-  --orb-pink: rgba(236, 72, 153, 0.1);
+  --orb-primary: rgba(20, 184, 166, 0.15);
+  --orb-accent: rgba(249, 115, 22, 0.12);
+  --orb-pink: rgba(251, 146, 60, 0.1);
 
   /* Pattern opacity */
   --pattern-opacity: 0.4;
@@ -109,18 +109,23 @@
    CSS Custom Properties - Dark Theme
    ============================================ */
 .dark {
-  /* Primary Palette - Deep Ocean Blues */
-  --color-primary-50: #eef5ff;
-  --color-primary-100: #d9e8ff;
-  --color-primary-200: #bcd7ff;
-  --color-primary-300: #8ebeff;
-  --color-primary-400: #599aff;
-  --color-primary-500: #3373ff;
-  --color-primary-600: #1a4ff5;
-  --color-primary-700: #153ae1;
-  --color-primary-800: #1730b6;
-  --color-primary-900: #192e8f;
-  --color-primary-950: #141d57;
+  /* Primary Palette - Electric Teal */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+  --color-primary-950: #042f2e;
+  
+  /* Accent - Vibrant Orange */
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #ea580c;
 
   /* Background & Surface - Dark Theme */
   --bg-primary: #0a0a0f;
@@ -145,18 +150,18 @@
   --text-muted: #475569;
 
   /* Gradients - Dark */
-  --gradient-glow: linear-gradient(135deg, rgba(51, 115, 255, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+  --gradient-glow: linear-gradient(135deg, rgba(20, 184, 166, 0.2) 0%, rgba(249, 115, 22, 0.2) 100%);
   --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-  --gradient-mesh: radial-gradient(at 40% 20%, hsla(228,100%,70%,0.15) 0px, transparent 50%),
-                   radial-gradient(at 80% 0%, hsla(270,100%,70%,0.12) 0px, transparent 50%),
-                   radial-gradient(at 0% 50%, hsla(339,100%,70%,0.08) 0px, transparent 50%);
+  --gradient-mesh: radial-gradient(at 40% 20%, hsla(168,76%,42%,0.15) 0px, transparent 50%),
+                   radial-gradient(at 80% 0%, hsla(25,95%,53%,0.12) 0px, transparent 50%),
+                   radial-gradient(at 0% 50%, hsla(168,76%,42%,0.08) 0px, transparent 50%);
 
   /* Shadows - Dark */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.3);
   --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.6), 0 10px 25px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 40px rgba(51, 115, 255, 0.15), 0 0 80px rgba(139, 92, 246, 0.1);
+  --shadow-glow: 0 0 40px rgba(20, 184, 166, 0.15), 0 0 80px rgba(249, 115, 22, 0.1);
   --shadow-glow-strong: 0 0 60px rgba(51, 115, 255, 0.3), 0 0 120px rgba(139, 92, 246, 0.2);
 
   /* Orb colors - Dark */
