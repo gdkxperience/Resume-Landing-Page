@@ -1,7 +1,8 @@
 import jsPDF from 'jspdf'
 
-// Colors
-const PRIMARY_COLOR: [number, number, number] = [51, 115, 255] // #3373ff
+// Colors - Teal/Orange theme
+const PRIMARY_COLOR: [number, number, number] = [20, 184, 166] // #14b8a6 teal
+const ACCENT_COLOR: [number, number, number] = [249, 115, 22] // #f97316 orange
 const TEXT_DARK: [number, number, number] = [30, 30, 40]
 const TEXT_GRAY: [number, number, number] = [80, 80, 90]
 const TEXT_LIGHT: [number, number, number] = [120, 120, 130]
@@ -259,7 +260,7 @@ export function generateResumePDF() {
     // Achievements
     exp.achievements.forEach(ach => {
       checkPageBreak(8)
-      doc.setTextColor(...TEXT_DARK)
+      doc.setTextColor(...ACCENT_COLOR)
       setFont('bold', 8)
       addText(`▸ ${ach.name}:`, margin + 2, y)
       
