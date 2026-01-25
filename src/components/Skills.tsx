@@ -208,9 +208,10 @@ export function Skills() {
         >
           <p className="text-sm text-[var(--text-muted)] mb-6">Full technology stack</p>
           <div className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto">
-            {['React', 'TypeScript', 'Vue 3', 'Redux', 'Node.js', 'Express', 'AWS', 'Docker', 
-              'PostgreSQL', 'MongoDB', 'Supabase', 'WebSockets', 'n8n', 'GitHub Actions', 
-              'Tailwind', 'Storybook', 'OAuth', 'RBAC', 'SOAP', 'REST APIs'].map((tech, index) => (
+            {['React', 'Redux', 'TypeScript', 'Vue 3', 'Tailwind CSS', 'Node.js', 'Express', 
+              'MongoDB', 'SQL', 'Supabase', 'WebSockets', 'AWS', 'Lambda', 'Docker', 
+              'GitHub Actions', 'CI/CD', 'REST APIs', 'OAuth 2.0', 'Payment Gateways', 'Webhooks',
+              'Figma', 'UI/UX', 'Storybook', 'n8n', 'System Design', 'RBAC'].map((tech, index) => (
               <motion.div
                 key={tech}
                 initial={{ opacity: 0, scale: 0.8, y: 10 }}
