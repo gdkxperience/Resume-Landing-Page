@@ -5,6 +5,7 @@ import { Button } from './ui/Button'
 import { ThemeToggle } from './ThemeToggle'
 import { navigation, personalInfo } from '@/data/resume'
 import { scrollToSection } from '@/lib/utils'
+import { generateResumePDF } from '@/lib/generateResumePDF'
 import georgiImage from '@/assets/Georgi.png'
 
 export function Navigation() {
@@ -117,6 +118,7 @@ export function Navigation() {
                 variant="primary"
                 size="sm"
                 leftIcon={<Download className="w-4 h-4" />}
+                onClick={generateResumePDF}
               >
                 Resume
               </Button>
@@ -188,6 +190,10 @@ export function Navigation() {
                   size="lg"
                   className="w-full"
                   leftIcon={<Download className="w-5 h-5" />}
+                  onClick={() => {
+                    generateResumePDF()
+                    setIsOpen(false)
+                  }}
                 >
                   Download Resume
                 </Button>

@@ -12,6 +12,7 @@ import { Button } from './ui/Button'
 import { Card } from './ui/Card'
 import { Badge } from './ui/Badge'
 import { personalInfo, education } from '@/data/resume'
+import { generateResumePDF } from '@/lib/generateResumePDF'
 
 export function Contact() {
   const contactMethods = [
@@ -168,6 +169,7 @@ export function Contact() {
                     size="lg"
                     className="w-full"
                     leftIcon={<Download className="w-5 h-5" />}
+                    onClick={generateResumePDF}
                   >
                     Download Full Resume (PDF)
                   </Button>
