@@ -12,10 +12,10 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 const stepColors = [
-  { bg: 'from-blue-500/20 to-cyan-500/20', border: 'border-blue-500/30', text: 'text-blue-400', glow: 'bg-blue-500/30' },
-  { bg: 'from-amber-500/20 to-orange-500/20', border: 'border-amber-500/30', text: 'text-amber-400', glow: 'bg-amber-500/30' },
-  { bg: 'from-emerald-500/20 to-teal-500/20', border: 'border-emerald-500/30', text: 'text-emerald-400', glow: 'bg-emerald-500/30' },
-  { bg: 'from-violet-500/20 to-purple-500/20', border: 'border-violet-500/30', text: 'text-violet-400', glow: 'bg-violet-500/30' },
+  { bg: 'from-blue-500/20 to-cyan-500/20', border: 'border-blue-500/40', text: 'text-blue-600 dark:text-blue-400', glow: 'bg-blue-500/30' },
+  { bg: 'from-amber-500/20 to-orange-500/20', border: 'border-amber-500/40', text: 'text-amber-600 dark:text-amber-400', glow: 'bg-amber-500/30' },
+  { bg: 'from-emerald-500/20 to-teal-500/20', border: 'border-emerald-500/40', text: 'text-emerald-600 dark:text-emerald-400', glow: 'bg-emerald-500/30' },
+  { bg: 'from-violet-500/20 to-purple-500/20', border: 'border-violet-500/40', text: 'text-violet-600 dark:text-violet-400', glow: 'bg-violet-500/30' },
 ]
 
 export function HowIWork() {
@@ -117,7 +117,7 @@ export function HowIWork() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 + i * 0.1 }}
-                        className="flex items-start gap-2 text-xs text-[var(--text-muted)]"
+                        className="flex items-start gap-2 text-xs text-[var(--text-secondary)]"
                       >
                         <CheckCircle2 className={`w-3.5 h-3.5 ${colors.text} flex-shrink-0 mt-0.5`} />
                         <span>{detail}</span>
