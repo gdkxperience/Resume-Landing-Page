@@ -34,34 +34,34 @@ function getProficiency(level: number): {
 } {
   if (level >= 90) return { 
     label: 'Expert', 
-    textColor: 'text-emerald-300',
-    bgGradient: 'bg-gradient-to-r from-emerald-500/25 via-emerald-400/20 to-teal-500/25',
-    borderColor: 'border-emerald-400/40',
-    glowColor: 'shadow-emerald-500/20',
+    textColor: 'text-emerald-600 dark:text-emerald-400',
+    bgGradient: 'bg-gradient-to-r from-emerald-500/20 via-emerald-400/15 to-teal-500/20',
+    borderColor: 'border-emerald-500/50',
+    glowColor: 'shadow-emerald-500/25',
     icon: Award 
   }
   if (level >= 85) return { 
     label: 'Advanced', 
-    textColor: 'text-blue-300',
-    bgGradient: 'bg-gradient-to-r from-blue-500/25 via-blue-400/20 to-cyan-500/25',
-    borderColor: 'border-blue-400/40',
-    glowColor: 'shadow-blue-500/20',
+    textColor: 'text-blue-600 dark:text-blue-400',
+    bgGradient: 'bg-gradient-to-r from-blue-500/20 via-blue-400/15 to-cyan-500/20',
+    borderColor: 'border-blue-500/50',
+    glowColor: 'shadow-blue-500/25',
     icon: Sparkles 
   }
   if (level >= 80) return { 
     label: 'Proficient', 
-    textColor: 'text-violet-300',
-    bgGradient: 'bg-gradient-to-r from-violet-500/25 via-purple-400/20 to-fuchsia-500/25',
-    borderColor: 'border-violet-400/40',
-    glowColor: 'shadow-violet-500/20',
+    textColor: 'text-violet-600 dark:text-violet-400',
+    bgGradient: 'bg-gradient-to-r from-violet-500/20 via-purple-400/15 to-fuchsia-500/20',
+    borderColor: 'border-violet-500/50',
+    glowColor: 'shadow-violet-500/25',
     icon: Zap 
   }
   return { 
     label: 'Skilled', 
-    textColor: 'text-amber-300',
-    bgGradient: 'bg-gradient-to-r from-amber-500/25 via-orange-400/20 to-yellow-500/25',
-    borderColor: 'border-amber-400/40',
-    glowColor: 'shadow-amber-500/20',
+    textColor: 'text-amber-600 dark:text-amber-400',
+    bgGradient: 'bg-gradient-to-r from-amber-500/20 via-orange-400/15 to-yellow-500/20',
+    borderColor: 'border-amber-500/50',
+    glowColor: 'shadow-amber-500/25',
     icon: Star 
   }
 }
