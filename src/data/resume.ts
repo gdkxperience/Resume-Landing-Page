@@ -54,8 +54,8 @@ export const skills = {
       { name: "Docker", level: 85, years: 3 },
       { name: "GitHub Actions", level: 88, years: 4 },
       { name: "CI/CD Pipelines", level: 88, years: 5 },
-      { name: "AWS Cognito", level: 82, years: 3 },
       { name: "AWS Lambda", level: 80, years: 2 },
+      { name: "AWS Cognito", level: 82, years: 3 },
     ]
   },
   integrations: {
