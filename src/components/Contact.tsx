@@ -12,7 +12,15 @@ import { Button } from './ui/Button'
 import { Card } from './ui/Card'
 import { Badge } from './ui/Badge'
 import { personalInfo, education } from '@/data/resume'
-import { generateResumePDF } from '@/lib/generateResumePDF'
+
+const downloadResume = () => {
+  const link = document.createElement('a')
+  link.href = '/GK_Resume.pdf'
+  link.download = 'Georgi_Krastev_Resume.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 
 export function Contact() {
   const contactMethods = [
@@ -169,7 +177,7 @@ export function Contact() {
                     size="lg"
                     className="w-full"
                     leftIcon={<Download className="w-5 h-5" />}
-                    onClick={generateResumePDF}
+                    onClick={downloadResume}
                   >
                     Download Full Resume (PDF)
                   </Button>

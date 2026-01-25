@@ -5,8 +5,16 @@ import { Button } from './ui/Button'
 import { ThemeToggle } from './ThemeToggle'
 import { navigation, personalInfo } from '@/data/resume'
 import { scrollToSection } from '@/lib/utils'
-import { generateResumePDF } from '@/lib/generateResumePDF'
 import georgiImage from '@/assets/Georgi.png'
+
+const downloadResume = () => {
+  const link = document.createElement('a')
+  link.href = '/GK_Resume.pdf'
+  link.download = 'Georgi_Krastev_Resume.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -118,7 +126,7 @@ export function Navigation() {
                 variant="primary"
                 size="sm"
                 leftIcon={<Download className="w-4 h-4" />}
-                onClick={generateResumePDF}
+                onClick={downloadResume}
               >
                 Resume
               </Button>
@@ -191,7 +199,7 @@ export function Navigation() {
                   className="w-full"
                   leftIcon={<Download className="w-5 h-5" />}
                   onClick={() => {
-                    generateResumePDF()
+                    downloadResume()
                     setIsOpen(false)
                   }}
                 >
