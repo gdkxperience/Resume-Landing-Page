@@ -422,23 +422,51 @@ export const metrics = [
 export const howIWork = [
   {
     title: "Discovery & Architecture",
-    description: "I start by deeply understanding the problem space, stakeholder needs, and technical constraints. This leads to clear architectural decisions documented for the team.",
-    icon: "Search"
+    description: "Deep-dive into problem space, stakeholder needs, and technical constraints before writing a single line of code.",
+    icon: "Search",
+    details: [
+      "Stakeholder interviews & requirements gathering",
+      "Technical feasibility assessment",
+      "Architecture decision records (ADRs)",
+      "Risk identification & mitigation planning"
+    ],
+    outcome: "Clear roadmap with no surprises"
   },
   {
     title: "Rapid Prototyping",
-    description: "I believe in shipping early and iterating. MVPs get validated quickly, and feedback loops are short. No analysis paralysis.",
-    icon: "Zap"
+    description: "Ship early, iterate fast. MVPs get validated quickly with short feedback loops. No analysis paralysis.",
+    icon: "Zap",
+    details: [
+      "Working prototype in days, not weeks",
+      "User testing from day one",
+      "Incremental feature delivery",
+      "3-4x faster than industry standard"
+    ],
+    outcome: "TabiSurvey MVP: 3 weeks to production"
   },
   {
-    title: "Clean, Maintainable Code",
-    description: "Component libraries, design systems, and shared utilities. I build foundations that scale and that other developers love working with.",
-    icon: "Code"
+    title: "Clean, Scalable Code",
+    description: "Component libraries, design systems, and shared utilities that other developers love working with.",
+    icon: "Code",
+    details: [
+      "TypeScript-first development",
+      "Comprehensive test coverage",
+      "Storybook documentation",
+      "Performance optimization"
+    ],
+    outcome: "20-25% codebase reduction at EnduroSat"
   },
   {
-    title: "Async-First Communication",
-    description: "Clear documentation, recorded decisions, and structured updates. I work effectively across timezones and with distributed teams.",
-    icon: "MessageSquare"
+    title: "Async-First Collaboration",
+    description: "Clear documentation, recorded decisions, and structured updates. Effective across timezones.",
+    icon: "MessageSquare",
+    details: [
+      "Detailed PRs with context",
+      "Notion/Confluence documentation",
+      "Loom video walkthroughs",
+      "Slack-friendly updates"
+    ],
+    outcome: "Led 15+ distributed team members"
   }
 ]
 
