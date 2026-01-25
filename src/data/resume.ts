@@ -27,10 +27,10 @@ export const skills = {
     icon: "Layout",
     items: [
       { name: "React", level: 95, years: 6 },
-      { name: "TypeScript", level: 92, years: 5 },
+      { name: "Redux", level: 92, years: 6 },
+      { name: "TypeScript", level: 92, years: 6 },
       { name: "Vue 3", level: 88, years: 3 },
-      { name: "Redux", level: 90, years: 5 },
-      { name: "Tailwind CSS", level: 90, years: 4 },
+      { name: "Tailwind CSS", level: 85, years: 2 },
       { name: "Storybook", level: 85, years: 3 },
     ]
   },
@@ -38,11 +38,11 @@ export const skills = {
     title: "Backend",
     icon: "Server",
     items: [
-      { name: "Node.js", level: 88, years: 6 },
-      { name: "Express", level: 85, years: 5 },
-      { name: "SQL", level: 82, years: 7 },
-      { name: "MongoDB", level: 80, years: 4 },
-      { name: "Supabase", level: 78, years: 2 },
+      { name: "Node.js", level: 90, years: 7 },
+      { name: "Express", level: 90, years: 6 },
+      { name: "MongoDB", level: 90, years: 6 },
+      { name: "SQL", level: 88, years: 7 },
+      { name: "Supabase", level: 82, years: 2 },
       { name: "WebSockets", level: 85, years: 4 },
     ]
   },
@@ -51,29 +51,43 @@ export const skills = {
     icon: "Cloud",
     items: [
       { name: "AWS (S3, EC2, CloudFront)", level: 85, years: 4 },
-      { name: "Docker", level: 80, years: 3 },
+      { name: "Docker", level: 85, years: 3 },
       { name: "GitHub Actions", level: 88, years: 4 },
-      { name: "CI/CD Pipelines", level: 85, years: 5 },
+      { name: "CI/CD Pipelines", level: 88, years: 5 },
+      { name: "AWS Cognito", level: 82, years: 3 },
+      { name: "AWS Lambda", level: 80, years: 2 },
     ]
   },
   integrations: {
     title: "Integrations & APIs",
     icon: "Puzzle",
     items: [
-      { name: "REST APIs", level: 92, years: 8 },
-      { name: "SOAP APIs", level: 80, years: 3 },
-      { name: "OAuth", level: 85, years: 5 },
+      { name: "REST APIs", level: 95, years: 8 },
+      { name: "SOAP/XML APIs", level: 85, years: 3 },
+      { name: "OAuth 2.0", level: 88, years: 5 },
       { name: "n8n Automation", level: 88, years: 2 },
+      { name: "Payment Gateways", level: 85, years: 3 },
+      { name: "Webhook Systems", level: 88, years: 4 },
+    ]
+  },
+  design: {
+    title: "Design",
+    icon: "Palette",
+    items: [
+      { name: "UI/UX Wireframing", level: 85, years: 5 },
+      { name: "Pixel Perfect Mockups", level: 88, years: 4 },
+      { name: "Figma", level: 85, years: 4 },
+      { name: "Design Systems", level: 90, years: 4 },
     ]
   },
   architecture: {
     title: "Architecture",
     icon: "Boxes",
     items: [
-      { name: "System Design", level: 88, years: 5 },
-      { name: "RBAC", level: 85, years: 4 },
-      { name: "Component Libraries", level: 90, years: 4 },
-      { name: "Performance Optimization", level: 85, years: 5 },
+      { name: "System Design", level: 90, years: 5 },
+      { name: "RBAC", level: 88, years: 4 },
+      { name: "Component Libraries", level: 92, years: 4 },
+      { name: "Performance Optimization", level: 88, years: 5 },
     ]
   }
 }

@@ -26,11 +26,12 @@ const resumeContent = {
   ],
   
   skills: {
-    frontend: 'React (Hooks, Context), Redux, TypeScript, Vue 3 (Composition API), Vite, Tailwind CSS, Material UI, Storybook, WebSockets',
-    backend: 'Node.js, Express.js, MongoDB, SQL, Supabase, REST APIs, SOAP/XML',
-    cloud: 'AWS (S3, CloudFront, EC2, Cognito, Lambda, RDS), Docker, GitHub Actions CI/CD',
-    ai: 'n8n (50+ step workflows), Custom JavaScript Nodes, OpenAI API, Automated Reporting',
-    architecture: 'Design Systems, Legacy Modernization, RBAC, OAuth 2.0, System Design'
+    frontend: 'React (6+ yrs), Redux (6+ yrs), TypeScript (6+ yrs), Vue 3, Tailwind CSS (2+ yrs), Storybook, WebSockets',
+    backend: 'Node.js (7+ yrs), Express (6+ yrs), MongoDB (6+ yrs), SQL (Advanced), Supabase, REST APIs',
+    cloud: 'AWS (S3, CloudFront, EC2, Cognito, Lambda, RDS), Docker (Advanced), GitHub Actions CI/CD',
+    integrations: 'REST APIs, SOAP/XML APIs, OAuth 2.0, n8n Automation, Payment Gateways, Webhook Systems',
+    design: 'UI/UX Wireframing, Pixel Perfect Mockups, Figma, Design Systems',
+    architecture: 'System Design, RBAC, Component Libraries, Performance Optimization'
   },
   
   experience: [

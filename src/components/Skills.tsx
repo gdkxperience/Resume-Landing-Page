@@ -6,6 +6,7 @@ import {
   Cloud, 
   Puzzle, 
   Boxes,
+  Palette,
   Star,
   Sparkles,
   Zap,
@@ -20,7 +21,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Server,
   Cloud,
   Puzzle,
-  Boxes
+  Boxes,
+  Palette
 }
 
 // Convert numeric level to descriptive proficiency with beautiful styling
