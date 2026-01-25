@@ -5,7 +5,11 @@ import {
   Server, 
   Cloud, 
   Puzzle, 
-  Boxes
+  Boxes,
+  Star,
+  Sparkles,
+  Zap,
+  Award
 } from 'lucide-react'
 import { Card } from './ui/Card'
 import { Badge } from './ui/Badge'
@@ -17,6 +21,14 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Cloud,
   Puzzle,
   Boxes
+}
+
+// Convert numeric level to descriptive proficiency
+function getProficiency(level: number): { label: string; color: string; icon: React.ComponentType<{ className?: string }> } {
+  if (level >= 90) return { label: 'Expert', color: 'text-emerald-400', icon: Award }
+  if (level >= 85) return { label: 'Advanced', color: 'text-blue-400', icon: Sparkles }
+  if (level >= 80) return { label: 'Proficient', color: 'text-violet-400', icon: Zap }
+  return { label: 'Skilled', color: 'text-amber-400', icon: Star }
 }
 
 export function Skills() {
@@ -106,46 +118,39 @@ export function Skills() {
             exit="hidden"
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           >
-            {skills[activeCategory as keyof typeof skills].items.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                variants={itemVariants}
-                custom={index}
-              >
-                <Card variant="glass" padding="md" className="group">
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-semibold text-[var(--text-primary)] group-hover:text-[var(--color-primary-400)] transition-colors">
-                      {skill.name}
-                    </h4>
-                    <span className="text-xs text-[var(--text-muted)]">{skill.years}+ yrs</span>
-                  </div>
-                  
-                  {/* Progress Bar */}
-                  <div className="relative h-2 bg-[var(--glass-border)] rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-y-0 left-0 bg-gradient-to-r from-[var(--color-primary-500)] to-[var(--color-accent-500)] rounded-full"
-                    />
-                    {/* Shimmer effect */}
-                    <motion.div
-                      initial={{ x: '-100%' }}
-                      whileInView={{ x: '200%' }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, delay: 0.5 + index * 0.1 }}
-                      className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    />
-                  </div>
-                  
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-xs text-[var(--text-muted)]">Proficiency</span>
-                    <span className="text-xs font-medium text-[var(--color-primary-400)]">{skill.level}%</span>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+            {skills[activeCategory as keyof typeof skills].items.map((skill, index) => {
+              const proficiency = getProficiency(skill.level)
+              const ProficiencyIcon = proficiency.icon
+              
+              return (
+                <motion.div
+                  key={skill.name}
+                  variants={itemVariants}
+                  custom={index}
+                >
+                  <Card variant="glass" padding="md" className="group hover:border-[var(--color-primary-500)]/30 transition-all duration-300">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-[var(--text-primary)] group-hover:text-[var(--color-primary-400)] transition-colors mb-1">
+                          {skill.name}
+                        </h4>
+                        <p className="text-xs text-[var(--text-muted)]">
+                          {skill.years}+ years of hands-on experience
+                        </p>
+                      </div>
+                      
+                      {/* Proficiency Badge */}
+                      <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)]">
+                        <ProficiencyIcon className={`w-3.5 h-3.5 ${proficiency.color}`} />
+                        <span className={`text-xs font-medium ${proficiency.color}`}>
+                          {proficiency.label}
+                        </span>
+                      </div>
+                    </div>
+                  </Card>
+                </motion.div>
+              )
+            })}
           </motion.div>
         </AnimatePresence>
         
