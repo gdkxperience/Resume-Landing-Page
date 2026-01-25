@@ -118,7 +118,7 @@ export function Navigation() {
                 variant="primary"
                 size="sm"
                 leftIcon={<Download className="w-4 h-4" />}
-                onClick={generateResumePDF}
+                onClick={() => generateResumePDF()}
               >
                 Resume
               </Button>

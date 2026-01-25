@@ -169,7 +169,7 @@ export function Contact() {
                     size="lg"
                     className="w-full"
                     leftIcon={<Download className="w-5 h-5" />}
-                    onClick={generateResumePDF}
+                    onClick={() => generateResumePDF()}
                   >
                     Download Full Resume (PDF)
                   </Button>

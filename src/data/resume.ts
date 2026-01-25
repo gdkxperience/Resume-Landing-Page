@@ -430,7 +430,7 @@ export const howIWork = [
 
 export const education = {
   institution: "University of Manchester",
-  degree: "Studies in Computer Science",
+  degree: "Studied Computer Science",
   period: "2015 – 2017",
   location: "Manchester, UK"
 }
