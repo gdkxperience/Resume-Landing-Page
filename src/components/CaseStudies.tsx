@@ -11,18 +11,60 @@ import {
   CheckCircle2,
   AlertTriangle,
   ClipboardList,
-  Cpu
+  Cpu,
+  Sparkles,
+  Zap,
+  Globe,
+  Rocket,
+  BarChart3
 } from 'lucide-react'
 import { Card } from './ui/Card'
 import { Badge } from './ui/Badge'
 import { caseStudies } from '@/data/resume'
 
-const thumbnailIcons: Record<string, React.ComponentType<{ className?: string }>> = {
-  fuel: Fuel,
-  satellite: Satellite,
-  automation: Bot,
-  survey: ClipboardList,
-  robot: Cpu
+// Personalized theme configurations for each case study
+const caseStudyThemes: Record<string, {
+  icon: React.ComponentType<{ className?: string }>
+  gradient: string
+  accentColor: string
+  bgPattern: string
+  decorativeIcons: React.ComponentType<{ className?: string }>[]
+}> = {
+  survey: {
+    icon: ClipboardList,
+    gradient: 'from-emerald-500/30 via-teal-500/20 to-cyan-500/30',
+    accentColor: 'text-emerald-400',
+    bgPattern: 'radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)',
+    decorativeIcons: [BarChart3, Sparkles]
+  },
+  robot: {
+    icon: Cpu,
+    gradient: 'from-orange-500/30 via-amber-500/20 to-yellow-500/30',
+    accentColor: 'text-orange-400',
+    bgPattern: 'radial-gradient(circle at 30% 70%, rgba(249, 115, 22, 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(245, 158, 11, 0.15) 0%, transparent 50%)',
+    decorativeIcons: [Zap, Sparkles]
+  },
+  fuel: {
+    icon: Fuel,
+    gradient: 'from-blue-500/30 via-indigo-500/20 to-violet-500/30',
+    accentColor: 'text-blue-400',
+    bgPattern: 'radial-gradient(circle at 25% 75%, rgba(59, 130, 246, 0.15) 0%, transparent 50%), radial-gradient(circle at 75% 25%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)',
+    decorativeIcons: [Globe, Sparkles]
+  },
+  satellite: {
+    icon: Satellite,
+    gradient: 'from-purple-500/30 via-fuchsia-500/20 to-pink-500/30',
+    accentColor: 'text-purple-400',
+    bgPattern: 'radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 50%)',
+    decorativeIcons: [Rocket, Sparkles]
+  },
+  automation: {
+    icon: Bot,
+    gradient: 'from-rose-500/30 via-red-500/20 to-orange-500/30',
+    accentColor: 'text-rose-400',
+    bgPattern: 'radial-gradient(circle at 30% 70%, rgba(244, 63, 94, 0.15) 0%, transparent 50%), radial-gradient(circle at 70% 30%, rgba(249, 115, 22, 0.15) 0%, transparent 50%)',
+    decorativeIcons: [Zap, Sparkles]
+  }
 }
 
 interface CaseStudyModalProps {
@@ -203,7 +245,9 @@ export function CaseStudies() {
         {/* Case Study Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {caseStudies.map((study, index) => {
-            const IconComponent = thumbnailIcons[study.thumbnail]
+            const theme = caseStudyThemes[study.thumbnail] || caseStudyThemes.automation
+            const IconComponent = theme.icon
+            const [DecorIcon1, DecorIcon2] = theme.decorativeIcons
             
             return (
               <motion.div
@@ -216,41 +260,85 @@ export function CaseStudies() {
                 <Card 
                   variant="gradient" 
                   padding="none"
-                  className="h-full cursor-pointer group"
+                  className="h-full cursor-pointer group overflow-hidden"
                   onClick={() => setSelectedStudy(study)}
                 >
-                  {/* Thumbnail */}
-                  <div className="relative h-48 bg-gradient-to-br from-[var(--color-primary-500)]/20 to-[var(--color-accent-500)]/20 flex items-center justify-center overflow-hidden">
+                  {/* Thumbnail - Fixed rounded corners */}
+                  <div 
+                    className={`relative h-48 bg-gradient-to-br ${theme.gradient} flex items-center justify-center overflow-hidden rounded-t-2xl`}
+                    style={{ background: theme.bgPattern }}
+                  >
+                    {/* Animated gradient overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-60`} />
+                    
+                    {/* Decorative floating icons */}
                     <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ type: "spring" }}
+                      className="absolute top-4 left-4 opacity-20"
+                      animate={{ y: [0, -8, 0], rotate: [0, 10, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      {IconComponent && (
-                        <IconComponent className="w-20 h-20 text-[var(--text-muted)]" />
-                      )}
+                      {DecorIcon1 && <DecorIcon1 className={`w-8 h-8 ${theme.accentColor}`} />}
+                    </motion.div>
+                    
+                    <motion.div
+                      className="absolute bottom-4 right-4 opacity-20"
+                      animate={{ y: [0, 8, 0], rotate: [0, -10, 0] }}
+                      transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                    >
+                      {DecorIcon2 && <DecorIcon2 className={`w-6 h-6 ${theme.accentColor}`} />}
+                    </motion.div>
+                    
+                    {/* Grid pattern overlay */}
+                    <div 
+                      className="absolute inset-0 opacity-10"
+                      style={{
+                        backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+                        backgroundSize: '20px 20px'
+                      }}
+                    />
+                    
+                    {/* Main icon with glow effect */}
+                    <motion.div
+                      className="relative z-10"
+                      whileHover={{ scale: 1.15, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {/* Glow behind icon */}
+                      <div className={`absolute inset-0 blur-2xl ${theme.accentColor} opacity-40 scale-150`} />
+                      
+                      {/* Icon container with glass effect */}
+                      <div className="relative p-5 rounded-2xl bg-[var(--bg-primary)]/40 backdrop-blur-sm border border-white/10 shadow-xl">
+                        {IconComponent && (
+                          <IconComponent className={`w-12 h-12 ${theme.accentColor}`} />
+                        )}
+                      </div>
                     </motion.div>
                     
                     {/* Hover Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
-                      <span className="flex items-center gap-2 text-[var(--text-primary)] text-sm font-medium">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-secondary)] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4 rounded-t-2xl">
+                      <motion.span 
+                        className="flex items-center gap-2 text-[var(--text-primary)] text-sm font-medium px-4 py-2 rounded-full bg-[var(--glass-bg)] backdrop-blur-sm border border-[var(--glass-border)]"
+                        initial={{ y: 10, opacity: 0 }}
+                        whileHover={{ y: 0, opacity: 1 }}
+                      >
                         View Case Study <ArrowRight className="w-4 h-4" />
-                      </span>
+                      </motion.span>
                     </div>
                   </div>
                   
                   {/* Content */}
                   <div className="p-6">
                     <Badge variant="primary" size="sm" className="mb-3">{study.category}</Badge>
-                    <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2 group-hover:text-[var(--color-primary-400)] transition-colors">
+                    <h3 className={`text-xl font-bold text-[var(--text-primary)] mb-2 group-hover:${theme.accentColor} transition-colors`}>
                       {study.title}
                     </h3>
                     <p className="text-sm text-[var(--text-secondary)] mb-4">{study.subtitle}</p>
                     
-                    {/* Quick Stats */}
+                    {/* Quick Stats with themed colors */}
                     <div className="grid grid-cols-2 gap-2 mb-4">
                       {study.results.slice(0, 2).map((result, i) => (
-                        <div key={i} className="text-center p-2 rounded-lg bg-[var(--glass-bg)]">
-                          <p className="text-lg font-bold text-[var(--color-primary-400)]">{result.metric}</p>
+                        <div key={i} className="text-center p-2 rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)]">
+                          <p className={`text-lg font-bold ${theme.accentColor}`}>{result.metric}</p>
                           <p className="text-xs text-[var(--text-muted)]">{result.label}</p>
                         </div>
                       ))}
@@ -258,8 +346,14 @@ export function CaseStudies() {
                     
                     {/* Meta */}
                     <div className="flex items-center justify-between text-xs text-[var(--text-muted)]">
-                      <span>Team of {study.teamSize}</span>
-                      <span>{study.duration}</span>
+                      <span className="flex items-center gap-1">
+                        <Users className="w-3 h-3" />
+                        Team of {study.teamSize}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {study.duration}
+                      </span>
                     </div>
                   </div>
                 </Card>
