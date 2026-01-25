@@ -60,7 +60,7 @@ function AnimatedCounter({ value, delay = 0 }: AnimatedCounterProps) {
 
 export function Metrics() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" })
+  useInView(containerRef, { once: true, margin: "-100px" })
 
   return (
     <section className="section relative overflow-hidden py-24">

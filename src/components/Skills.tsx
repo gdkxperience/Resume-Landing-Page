@@ -5,8 +5,7 @@ import {
   Server, 
   Cloud, 
   Puzzle, 
-  Boxes,
-  ChevronRight
+  Boxes
 } from 'lucide-react'
 import { Card } from './ui/Card'
 import { Badge } from './ui/Badge'
@@ -37,7 +36,7 @@ export function Skills() {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] }
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }
     }
   }
 

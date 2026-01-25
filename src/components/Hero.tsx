@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, memo, useMemo } from 'react'
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import { 
-  ArrowDown,
   Terminal,
   Cpu,
   Database,
@@ -11,7 +10,8 @@ import {
   Zap,
   GitBranch,
   CheckCircle2,
-  Loader2
+  Loader2,
+  type LucideProps
 } from 'lucide-react'
 import { Badge } from './ui/Badge'
 import { personalInfo } from '@/data/resume'
@@ -181,7 +181,7 @@ const OrbitingIcon = memo(function OrbitingIcon({
   delay = 0,
   color 
 }: { 
-  icon: React.ComponentType<{ className?: string }>
+  icon: React.ComponentType<LucideProps>
   radius: number
   duration: number
   delay?: number
@@ -212,7 +212,7 @@ const OrbitingIcon = memo(function OrbitingIcon({
         }}
         whileHover={{ scale: 1.2, boxShadow: `0 0 30px ${color}40` }}
       >
-        <Icon className="w-5 h-5" style={{ color }} />
+        <Icon className="w-5 h-5" color={color} />
       </motion.div>
     </motion.div>
   )

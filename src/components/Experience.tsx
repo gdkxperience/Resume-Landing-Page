@@ -5,7 +5,6 @@ import {
   Calendar, 
   MapPin, 
   ChevronDown,
-  ExternalLink,
   Award
 } from 'lucide-react'
 import { Card } from './ui/Card'

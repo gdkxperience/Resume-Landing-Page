@@ -15,7 +15,6 @@ import {
 } from 'lucide-react'
 import { Card } from './ui/Card'
 import { Badge } from './ui/Badge'
-import { Button } from './ui/Button'
 import { caseStudies } from '@/data/resume'
 
 const thumbnailIcons: Record<string, React.ComponentType<{ className?: string }>> = {
