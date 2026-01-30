@@ -75,8 +75,8 @@ export const skills = {
     icon: "Palette",
     items: [
       { name: "UI/UX Wireframing", level: 85, years: 5 },
-      { name: "Pixel Perfect Mockups", level: 88, years: 4 },
-      { name: "Figma", level: 85, years: 4 },
+      { name: "Pixel-Perfect Mockups", level: 88, years: 4 },
+      { name: "Figma (Proficient)", level: 85, years: 4 },
       { name: "Design Systems", level: 90, years: 4 },
     ]
   },
@@ -113,7 +113,7 @@ export const experiences = [
         title: "TabiSurvey Platform",
         description: "Architected and shipped an advanced survey platform with RBAC, dynamic survey builder, and comprehensive analytics",
         impact: "MVP delivered within weeks",
-        tags: ["Vue 3", "Vite", "Pinia", "Supabase"]
+        tags: ["Vue 3", "Vite", "Pinia", "MongoDB", "AWS"]
       },
       {
         title: "Prezaredi.bg Fleet Management",
@@ -163,8 +163,8 @@ export const experiences = [
     technologies: ["React", "Redux", "TypeScript", "AWS S3", "CloudFront", "EC2", "Cognito", "GitHub Actions", "Storybook"]
   },
   {
-    id: "devcloud",
-    company: "DevCloud BG",
+    id: "he-five",
+    company: "He-Five",
     subtitle: "Industrial Robotics",
     title: "Senior Frontend Engineer",
     period: "2019 – 2022",
@@ -244,7 +244,7 @@ export const caseStudies = [
     results: [
       { metric: "MVP", label: "Delivered in Weeks" },
       { metric: "100%", label: "Feature Complete" },
-      { metric: "5+", label: "Survey Types" },
+      { metric: "100k+", label: "Survey Completions" },
       { metric: "Real-time", label: "Analytics" }
     ],
     risks: [

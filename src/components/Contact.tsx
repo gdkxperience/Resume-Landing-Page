@@ -22,6 +22,15 @@ const downloadResume = () => {
   document.body.removeChild(link)
 }
 
+const downloadCompactResume = () => {
+  const link = document.createElement('a')
+  link.href = '/GK_Resume_compact.pdf'
+  link.download = 'Georgi_Krastev_Resume_Compact.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+
 export function Contact() {
   const contactMethods = [
     {
@@ -75,10 +84,11 @@ export function Contact() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {/* Contact Info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="min-w-0 overflow-hidden"
           >
             <div className="space-y-6">
               {contactMethods.map((method, index) => (
@@ -144,10 +154,11 @@ export function Contact() {
           
           {/* CTA Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="min-w-0 overflow-hidden"
           >
             <Card variant="gradient" padding="lg" className="h-full relative overflow-hidden">
               {/* Decorative Elements */}
@@ -180,6 +191,15 @@ export function Contact() {
                     onClick={downloadResume}
                   >
                     Download Full Resume (PDF)
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full"
+                    leftIcon={<Download className="w-5 h-5" />}
+                    onClick={downloadCompactResume}
+                  >
+                    Download Compact Resume (PDF)
                   </Button>
                 </div>
                 

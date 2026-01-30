@@ -143,7 +143,7 @@ export function AboutMe() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="absolute -bottom-4 -left-4 md:left-4"
+              className="absolute -bottom-4 -right-4 md:right-4"
             >
               <Card variant="glass" padding="sm" className="flex items-center gap-2 shadow-lg">
                 <Briefcase className="w-4 h-4 text-[var(--color-accent-500)]" />

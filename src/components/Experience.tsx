@@ -10,6 +10,10 @@ import {
 import { Card } from './ui/Card'
 import { Badge } from './ui/Badge'
 import { experiences } from '@/data/resume'
+import mvpforgeLogo from '@/assets/logos/mvpforge.png'
+import endurosatLogo from '@/assets/logos/endurosat.png'
+import hefiveLogo from '@/assets/logos/he-five.png'
+import aucodaLogo from '@/assets/logos/aucoda.png'
 
 export function Experience() {
   const [expandedId, setExpandedId] = useState<string | null>('mvp-forge')
@@ -84,8 +88,18 @@ export function Experience() {
                   <div className="p-6">
                     <div className={`flex items-start gap-4 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                       {/* Company Icon */}
-                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-primary-500)]/20 to-[var(--color-accent-500)]/20 flex items-center justify-center border border-[var(--glass-border)]">
-                        <Briefcase className="w-6 h-6 text-[var(--color-primary-400)]" />
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-primary-500)]/20 to-[var(--color-accent-500)]/20 flex items-center justify-center border border-[var(--glass-border)] overflow-hidden">
+                        {exp.id === 'mvp-forge' ? (
+                          <img src={mvpforgeLogo} alt="MVP Forge" className="w-8 h-8 object-contain" />
+                        ) : exp.id === 'endurosat' ? (
+                          <img src={endurosatLogo} alt="EnduroSat" className="w-8 h-8 object-contain" />
+                        ) : exp.id === 'he-five' ? (
+                          <img src={hefiveLogo} alt="He-Five" className="w-8 h-8 object-contain" />
+                        ) : exp.id === 'aucoda' ? (
+                          <img src={aucodaLogo} alt="Aucoda" className="w-8 h-8 object-contain" />
+                        ) : (
+                          <Briefcase className="w-6 h-6 text-[var(--color-primary-400)]" />
+                        )}
                       </div>
                       
                       <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : ''}`}>

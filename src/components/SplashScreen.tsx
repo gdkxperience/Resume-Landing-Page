@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import georgiImage from '@/assets/Georgi.png'
 
 interface SplashScreenProps {
   onComplete: () => void
@@ -63,39 +64,33 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           
           {/* Center content */}
           <div className="relative z-10 text-center px-6">
-            {/* Logo/Initial */}
+            {/* Profile Picture */}
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
-              className="mx-auto mb-8 w-24 h-24 rounded-2xl flex items-center justify-center relative"
+              className="mx-auto mb-8 w-28 h-28 rounded-full flex items-center justify-center relative overflow-hidden"
               style={{ 
-                background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2) 0%, rgba(251, 146, 60, 0.2) 100%)',
-                border: '2px solid rgba(20, 184, 166, 0.3)'
+                border: '3px solid rgba(20, 184, 166, 0.5)'
               }}
             >
-              <span 
-                className="text-4xl font-bold"
-                style={{ 
-                  background: 'linear-gradient(135deg, #14b8a6 0%, #fb923c 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
-                }}
-              >
-                GK
-              </span>
+              <img 
+                src={georgiImage} 
+                alt="Georgi Krastev" 
+                className="w-full h-full object-cover object-top"
+              />
               
               {/* Rotating border */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-1 rounded-2xl opacity-50"
+                className="absolute -inset-1 rounded-full opacity-60"
                 style={{
                   background: 'conic-gradient(from 0deg, #14b8a6, #fb923c, #14b8a6)',
                   mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
                   maskComposite: 'xor',
                   WebkitMaskComposite: 'xor',
-                  padding: '2px'
+                  padding: '3px'
                 }}
               />
             </motion.div>

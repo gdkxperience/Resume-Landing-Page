@@ -12,10 +12,10 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 const stepColors = [
-  { bg: 'from-blue-500/20 to-cyan-500/20', border: 'border-blue-500/40', text: 'text-blue-600 dark:text-blue-400', glow: 'bg-blue-500/30' },
-  { bg: 'from-amber-500/20 to-orange-500/20', border: 'border-amber-500/40', text: 'text-amber-600 dark:text-amber-400', glow: 'bg-amber-500/30' },
-  { bg: 'from-emerald-500/20 to-teal-500/20', border: 'border-emerald-500/40', text: 'text-emerald-600 dark:text-emerald-400', glow: 'bg-emerald-500/30' },
-  { bg: 'from-violet-500/20 to-purple-500/20', border: 'border-violet-500/40', text: 'text-violet-600 dark:text-violet-400', glow: 'bg-violet-500/30' },
+  { bg: 'from-blue-500/5 to-cyan-500/10', border: 'border-blue-400/60', text: 'text-blue-800 dark:text-blue-400', glow: 'bg-blue-500/30' },
+  { bg: 'from-amber-500/5 to-orange-500/10', border: 'border-amber-400/60', text: 'text-amber-800 dark:text-amber-300', glow: 'bg-amber-500/30' },
+  { bg: 'from-emerald-500/5 to-teal-500/10', border: 'border-emerald-400/60', text: 'text-emerald-800 dark:text-emerald-300', glow: 'bg-emerald-500/30' },
+  { bg: 'from-violet-500/5 to-purple-500/10', border: 'border-violet-400/60', text: 'text-violet-800 dark:text-violet-300', glow: 'bg-violet-500/30' },
 ]
 
 export function HowIWork() {
@@ -80,7 +80,7 @@ export function HowIWork() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <Card variant="glass" padding="lg" className="h-full relative overflow-hidden group hover:border-[var(--color-primary-500)]/30 transition-all duration-300">
+                <Card variant="glass" padding="lg" className="h-full relative overflow-hidden group hover:border-[var(--color-primary-500)]/30 transition-all duration-300 flex flex-col">
                   {/* Mobile Step Number */}
                   <div className="lg:hidden absolute top-4 right-4">
                     <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${colors.bg} border ${colors.border} flex items-center justify-center`}>
@@ -109,7 +109,7 @@ export function HowIWork() {
                   </p>
                   
                   {/* Details List */}
-                  <ul className="space-y-2 mb-4">
+                  <ul className="space-y-2 mb-4 flex-1">
                     {item.details.map((detail, i) => (
                       <motion.li
                         key={i}
@@ -125,10 +125,10 @@ export function HowIWork() {
                     ))}
                   </ul>
                   
-                  {/* Outcome Badge */}
-                  <div className={`flex items-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r ${colors.bg} border ${colors.border}`}>
-                    <Trophy className={`w-4 h-4 ${colors.text}`} />
-                    <span className={`text-xs font-medium ${colors.text}`}>{item.outcome}</span>
+                  {/* Outcome Badge - Always at bottom */}
+                  <div className={`flex items-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r ${colors.bg} border ${colors.border} mt-auto`}>
+                    <Trophy className={`w-4 h-4 ${colors.text} flex-shrink-0`} />
+                    <span className={`text-xs font-semibold ${colors.text}`}>{item.outcome}</span>
                   </div>
                   
                   {/* Bottom Gradient */}

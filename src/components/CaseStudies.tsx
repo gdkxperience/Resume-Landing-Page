@@ -22,6 +22,31 @@ import { Card } from './ui/Card'
 import { Badge } from './ui/Badge'
 import { caseStudies } from '@/data/resume'
 
+// Import logos
+import tabiSymbolLogo from '@/assets/logos/tabi-symbol.png'
+import prezarediSymbolLogo from '@/assets/logos/prezaredi-symbol.png'
+import endurosatLogo from '@/assets/logos/endurosat.png'
+import hefiveLogo from '@/assets/logos/he-five.png'
+import mvpforgeLogo from '@/assets/logos/mvpforge.png'
+
+// Logo mapping by case study ID
+const caseStudyLogos: Record<string, string> = {
+  'tabisurvey': tabiSymbolLogo,
+  'prezaredi': prezarediSymbolLogo,
+  'endurosat-platform': endurosatLogo,
+  'robot-control-center': hefiveLogo,
+  'ai-automation': mvpforgeLogo,
+}
+
+// Highlight tags for each case study
+const caseStudyHighlights: Record<string, string> = {
+  'tabisurvey': '100k+ Survey Completions',
+  'robot-control-center': 'Deployed in China Production',
+  'prezaredi': '99% System Uptime',
+  'endurosat-platform': '20-25% Codebase Reduction',
+  'ai-automation': '80 Hours Saved/Month',
+}
+
 // Personalized theme configurations for each case study
 const caseStudyThemes: Record<string, {
   icon: React.ComponentType<{ className?: string }>
@@ -308,7 +333,13 @@ export function CaseStudies() {
                       
                       {/* Icon container with glass effect */}
                       <div className="relative p-5 rounded-2xl bg-[var(--bg-primary)]/40 backdrop-blur-sm border border-white/10 shadow-xl">
-                        {IconComponent && (
+                        {caseStudyLogos[study.id] ? (
+                          <img 
+                            src={caseStudyLogos[study.id]} 
+                            alt={study.title} 
+                            className="w-12 h-12 object-contain"
+                          />
+                        ) : IconComponent && (
                           <IconComponent className={`w-12 h-12 ${theme.accentColor}`} />
                         )}
                       </div>
@@ -355,6 +386,15 @@ export function CaseStudies() {
                         {study.duration}
                       </span>
                     </div>
+                    
+                    {/* Highlight tag at bottom */}
+                    {caseStudyHighlights[study.id] && (
+                      <div className="mt-4 pt-4 border-t border-[var(--glass-border)]">
+                        <Badge variant="success" size="sm" className="w-full justify-center">
+                          {caseStudyHighlights[study.id]}
+                        </Badge>
+                      </div>
+                    )}
                   </div>
                 </Card>
               </motion.div>
