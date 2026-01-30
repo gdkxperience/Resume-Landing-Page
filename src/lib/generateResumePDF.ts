@@ -12,7 +12,7 @@ const resumeContent = {
   name: 'GEORGI KRASTEV',
   title: 'Senior Full-Stack Engineer | Technical Architect | Platform Modernization Specialist',
   contact: 'Sofia, Bulgaria | +359 87 960 6986 | krustevgeorgi@yahoo.com',
-  portfolio: 'resume-landing-page-zeta.vercel.app',
+  portfolio: 'gkrastev.com',
   
   summary: `Hands-on technical architect with 9+ years architecting and shipping scalable, high-impact platforms across real-time systems (satellites), industrial automation (robots), fintech integrations (payments), and AI-driven automation. Proven expertise in legacy platform modernization, design system leadership, third-party integrations at scale, and rapid MVP delivery (3–4x faster than industry standard).`,
   
@@ -303,7 +303,7 @@ export function generateResumePDF() {
   doc.setTextColor(...TEXT_LIGHT)
   setFont('normal', 7)
   const footerY = pageHeight - 8
-  addText(`Portfolio: resume-landing-page-zeta.vercel.app`, margin, footerY)
+  addText(`Portfolio: gkrastev.com`, margin, footerY)
   addText(`Generated ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}`, pageWidth / 2, footerY, { align: 'center' })
   addText('krustevgeorgi@yahoo.com', pageWidth - margin, footerY, { align: 'right' })
 

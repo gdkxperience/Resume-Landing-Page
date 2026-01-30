@@ -24,7 +24,7 @@ const downloadResume = () => {
 
 const downloadCompactResume = () => {
   const link = document.createElement('a')
-  link.href = '/GK_Resume_compact.pdf'
+  link.href = '/GK_Resume_Compact.pdf'
   link.download = 'Georgi_Krastev_Resume_Compact.pdf'
   document.body.appendChild(link)
   link.click()
