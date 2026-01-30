@@ -22,15 +22,6 @@ const downloadResume = () => {
   document.body.removeChild(link)
 }
 
-const downloadCompactResume = () => {
-  const link = document.createElement('a')
-  link.href = '/GK_Resume_Compact.pdf'
-  link.download = 'Georgi_Krastev_Resume_Compact.pdf'
-  document.body.appendChild(link)
-  link.click()
-  document.body.removeChild(link)
-}
-
 export function Contact() {
   const contactMethods = [
     {
@@ -190,16 +181,7 @@ export function Contact() {
                     leftIcon={<Download className="w-5 h-5" />}
                     onClick={downloadResume}
                   >
-                    Download Full Resume (PDF)
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full"
-                    leftIcon={<Download className="w-5 h-5" />}
-                    onClick={downloadCompactResume}
-                  >
-                    Download Compact Resume (PDF)
+                    Download Resume (PDF)
                   </Button>
                 </div>
                 

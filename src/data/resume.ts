@@ -97,7 +97,7 @@ export const experiences = [
     id: "mvp-forge",
     company: "Boutique Tech Consultancy",
     subtitle: "MVP Forge / ZenGroup",
-    title: "Principal Full-Stack Engineer / Solution Architect",
+    title: "Principal Full-Stack Engineer",
     period: "2024 – Present",
     location: "Sofia, Bulgaria",
     type: "current",
@@ -118,7 +118,7 @@ export const experiences = [
       {
         title: "Prezaredi.bg Fleet Management",
         description: "Led development of fuel payments & fleet card platform for corporate clients with BORICA payment integration",
-        impact: "~400 fleet cards, 20+ corporate clients, thousands of transactions/month, ~99% uptime",
+        impact: "~400 fleet cards, 20+ corporate clients, thousands of transactions/month",
         tags: ["React Native", "AWS", "SQL", "SOAP API"]
       },
       {
