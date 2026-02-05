@@ -216,6 +216,45 @@ export const experiences = [
 
 export const caseStudies = [
   {
+    id: "certifycloud",
+    title: "CertifyCloud (TCMS)",
+    subtitle: "Training & Competence Management",
+    category: "Full-Stack Architecture",
+    thumbnail: "certification",
+    problem: "Aviation organizations relied on fragmented spreadsheets and physical files to track employee training, proficiency checks, and regulatory compliance (EASA, FAA), risking expired qualifications and failed audits.",
+    constraints: [
+      "EASA ADR.OR.D.017 regulatory compliance required",
+      "Multi-tenant architecture for multiple organizations",
+      "Digital signatures with audit trail for non-repudiation",
+      "Real-time competence status tracking across personnel"
+    ],
+    approach: [
+      "Built React/TypeScript frontend with traffic-light dashboard (Green/Amber/Red status)",
+      "Designed Node.js/Express API with comprehensive RBAC system",
+      "Implemented PostgreSQL database with Row Level Security via Supabase",
+      "Created automated expiry tracking with configurable alert thresholds",
+      "Built PDF generation for training files, certificates, and audit reports"
+    ],
+    architecture: {
+      frontend: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      backend: ["Node.js", "Express", "PostgreSQL"],
+      cloud: ["Supabase", "Supabase Auth", "Supabase Storage"],
+      integrations: ["Digital Signatures", "PDF Generation", "Email Notifications"]
+    },
+    results: [
+      { metric: "100%", label: "EASA Compliant" },
+      { metric: "6", label: "User Roles" },
+      { metric: "Real-time", label: "Competence Tracking" },
+      { metric: "Audit", label: "Ready Reports" }
+    ],
+    risks: [
+      "Compliance ensured through immutable audit logs and RLS policies",
+      "Multi-tenancy isolation verified through database-level security"
+    ],
+    teamSize: 2,
+    duration: "2024 – Present"
+  },
+  {
     id: "tabisurvey",
     title: "TabiSurvey Platform",
     subtitle: "Advanced Survey & Analytics System",

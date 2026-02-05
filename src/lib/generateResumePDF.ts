@@ -41,7 +41,7 @@ const resumeContent = {
   experience: [
     {
       title: 'Principal Full-Stack Engineer / Solution Architect',
-      company: 'Boutique Tech Consultancy (MVP Forge / ZenGroup)',
+      company: 'MVP Forge / ZenGroup',
       location: 'Sofia, Bulgaria',
       period: 'January 2024 – Present',
       description: 'Leading technical delivery of AI automation services and rapid SaaS development with focus on workflow automation, payment integrations, and MVP velocity.',
