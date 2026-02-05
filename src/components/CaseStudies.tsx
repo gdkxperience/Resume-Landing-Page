@@ -19,9 +19,6 @@ import {
   BarChart3,
   Award,
   Shield,
-  ImageIcon,
-  Smartphone,
-  Monitor,
   ChevronLeft,
   ChevronRight,
   ZoomIn
