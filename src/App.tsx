@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { ThemeProvider } from './lib/ThemeContext'
 import { SplashScreen } from './components/SplashScreen'
 import { 
@@ -63,6 +64,9 @@ function App() {
         {/* Global Noise Overlay */}
         <div className="fixed inset-0 pointer-events-none noise-overlay" />
       </div>
+      
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </ThemeProvider>
   )
 }
